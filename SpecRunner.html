@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+
+  <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-1.2.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-1.2.0/jasmine.css">
+  <script type="text/javascript" src="jasmine/lib/jasmine-1.2.0/jasmine.js"></script>
+  <script type="text/javascript" src="jasmine/lib/jasmine-1.2.0/jasmine-html.js"></script>
+
+  <!-- include source files here... -->
+  <script type="text/javascript" src="specs/simpleFunctionSpec.js"></script>
+  <script type="text/javascript" src="specs/matchersSpec.js"></script>
+  <script type="text/javascript" src="specs/onlySpec.js"></script>
+  <script type="text/javascript" src="specs/moreMatchersSpec.js"></script>
+  <script type="text/javascript" src="specs/nestingBlocks.js"></script>
+  <script type="text/javascript" src="specs/spiesSpec.js"></script>
+  <script type="text/javascript" src="specs/spiesFunctionsSpec.js"></script>
+  <script type="text/javascript" src="specs/createSpySpec.js"></script>
+  <script type="text/javascript" src="specs/jasmineAnySpec.js"></script>
+  <script type="text/javascript" src="specs/asynchSpec.js"></script>
+  <!-- Adding spec for custom objects  -->
+  <script type="text/javascript" src="specs/playerSpec.js"></script>
+  <script type="text/javascript" src="specs/SpecHelper.js"></script>
+
+  <!-- include spec files here... -->
+  <script type="text/javascript" src="src/Player.js"></script>
+  <script type="text/javascript" src="src/Song.js"></script>
+
+  <script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>
